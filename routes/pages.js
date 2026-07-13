@@ -14,6 +14,36 @@ router.get('/hello', (req, res) => {
   res.send('We are learning about how to build a server right now. - aliens');
 });
 
+router.get('/entries', (req, res) => {
+  const entries = [
+    { title: 'First note', body: 'Body of the first note.' },
+    { title: 'Second note', body: 'Body of the second note.' },
+    { title: 'Third note', body: 'Body of the third note.' },
+  ];
+  res.render('entries', { entries });
+});
+
+router.get('/about', (req, res) => {
+  res.render('about', { title: 'About' });
+});
+
+router.get('/entries/:id', (req, res) => {
+  const entries = [
+    { title: 'First note', body: 'Body of the first note.' },
+    { title: 'Second note', body: 'Body of the second note.' },
+    { title: 'Third note', body: 'Body of the third note.' },
+  ];
+  const index = parseInt(req.params.id);
+  const entry = entries[index];
+
+  if (!entry) {
+    res.status(404).render('not-found');
+    return;
+  }
+
+  res.render('entry-detail', { entry });
+});
+
 router.get('/hello/:name', (req, res) => {
   const name = req.params.name;
   res.send(`Hello, ${name}!`);
