@@ -6,10 +6,6 @@ router.get('/', (req, res) => {
   res.send('Hello to the web. - aliens.');
 });
 
-router.get('/about', (req, res) => {
-  res.send('This is a web programming course. - aliens');
-});
-
 router.get('/hello', (req, res) => {
   res.send('We are learning about how to build a server right now. - aliens');
 });
