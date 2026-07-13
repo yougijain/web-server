@@ -19,9 +19,6 @@ router.get('/entries', (req, res) => {
   res.render('entries', { entries });
 });
 
-router.get('/about', (req, res) => {
-  res.render('about', { title: 'About' });
-});
 
 router.get('/entries/:id', (req, res) => {
   const entries = [
